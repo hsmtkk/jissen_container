@@ -25,5 +25,6 @@ steps:
         from_secret: GIT_HUB_TOKEN
       dockerfile: build/smpwebsrv/Dockerfile
       tags: latest
+      debug: true
     depends_on:
       - test_smpwebsrv
