@@ -3,16 +3,39 @@ type: docker
 name: default
 
 steps:
-  - name: test_simple_web_server
+  - name: test_smpwebsrv
     image: golang:1.14
     commands:
       - cd pkg/smpwebsrv
       - go test
-  - name: build_simple_web_server
+  - name: build_smpwebsrv
     image: golang:1.14
     commands:
       - cd cmd/smpwebsrv
+      - export CGO_ENABLED=0
       - go build
     depends_on:
-      - test_simple_web_server
-      
+      - test_smpwebsrv
+  - name: docker_smpwebsrv
+    image: plugins/docker
+    settings:
+      username: hsmtkk
+      password:
+        from_secret: GIT_HUB_TOKEN
+      repo: docker.pkg.github.com/hsmtkk/jissen_container/smpwebsrv
+      registry: docker.pkg.github.com
+      dockerfile: build/smpwebsrv/Dockerfile
+      auto_tag: true
+    depends_on:
+      - test_smpwebsrv
+  - name: release_smpwebsrv
+    image: plugins/github-release
+    settings:
+      api_key:
+        from_secret: GIT_HUB_TOKEN
+      files:
+        - cmd/smpwebsrv/smpwebsrv
+    when:
+      event: tag
+    depends_on:
+      - build_smpwebsrv
