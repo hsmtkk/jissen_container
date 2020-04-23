@@ -3,25 +3,26 @@ type: docker
 name: default
 
 steps:
-  - name: test_simple_web_server
+  - name: test_smpwebsrv
     image: golang:1.14
     commands:
       - cd pkg/smpwebsrv
       - go test
-  - name: build_simple_web_server
+  - name: build_smpwebsrv
     image: golang:1.14
     commands:
       - cd cmd/smpwebsrv
       - go build
     depends_on:
-      - test_simple_web_server
-  - name: docker_simple_web_server
+      - test_smpwebsrv
+  - name: docker_smpwebsrv
     image: plugins/docker
     settings:
       repo: hsmtkk/jissen_container
       username: hsmtkk
       auth:
         from_secret: GIT_HUB_TOKEN
+      dockerfile: build/smpwebsrv/Dockerfile
       tags: latest
     depends_on:
-      - test_simple_web_server
+      - test_smpwebsrv
