@@ -22,7 +22,7 @@ steps:
       password:
         from_secret: GIT_HUB_TOKEN
       repo: docker.pkg.github.com/hsmtkk/jissen_container/smpwebsrv
-      registry: github.com/hsmtkk/jissen_container
+      registry: docker.pkg.github.com
       dockerfile: build/smpwebsrv/Dockerfile
       tags: latest
     depends_on:
