@@ -18,6 +18,6 @@ FROM alpine:3.11.5
 
 COPY --from=builder /smpwebsrv.bin /smpwebsrv.bin
 
-EXPOSE 80
+EXPOSE 8080
 
 ENTRYPOINT ["/smpwebsrv.bin"]
