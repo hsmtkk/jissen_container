@@ -1,0 +1,18 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+  - name: test_simple_web_server
+    image: golang:1.14
+    commands:
+      - cd pkg/smpwebsrv
+      - go test
+  - name: build_simple_web_server
+    image: golang:1.14
+    commands:
+      - cd cmd/smpwebsrv
+      - go build
+    depends_on:
+      - test_simple_web_server
+      
