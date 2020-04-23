@@ -25,6 +25,5 @@ steps:
       registry: github.com/hsmtkk/jissen_container
       dockerfile: build/smpwebsrv/Dockerfile
       tags: latest
-      debug: true
     depends_on:
       - test_smpwebsrv
