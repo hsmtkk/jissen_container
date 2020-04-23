@@ -19,6 +19,7 @@ steps:
     image: plugins/docker
     settings:
       repo: hsmtkk/jissen_container
+      registry: github.com/hsmtkk/jissen_container
       username: hsmtkk
       auth:
         from_secret: GIT_HUB_TOKEN
