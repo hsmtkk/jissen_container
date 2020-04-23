@@ -9,6 +9,8 @@ COPY ./cmd/smpwebsrv ./cmd/smpwebsrv
 COPY ./go.mod .
 COPY ./go.sum .
 
+WORKDIR /go/src/github.com/hsmtkk/jissen_container/cmd/smpwebsrv
+
 ENV CGO_ENABLED=0
 RUN go build -o /smpwebsrv.bin
 
