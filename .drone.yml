@@ -18,7 +18,7 @@ steps:
   - name: docker_smpwebsrv
     image: plugins/docker
     settings:
-      username: hsmtkk@gmail.com
+      username: hsmtkk
       password:
         from_secret: GIT_HUB_TOKEN
       repo: docker.pkg.github.com/hsmtkk/jissen_container/smpwebsrv
