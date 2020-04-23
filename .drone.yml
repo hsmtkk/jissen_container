@@ -18,8 +18,8 @@ steps:
   - name: docker_smpwebsrv
     image: plugins/docker
     settings:
-      registry: docker.pkg.github.com/hsmtkk/jissen_container/smpwebsrv
-      repo: github.com/hsmtkk/jissen_container
+      repo: docker.pkg.github.com/hsmtkk/jissen_container/smpwebsrv
+      registry: github.com/hsmtkk/jissen_container
       username: hsmtkk
       auth:
         from_secret: GIT_HUB_TOKEN
