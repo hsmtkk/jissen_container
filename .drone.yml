@@ -23,6 +23,8 @@ steps:
       username: hsmtkk
       auth:
         from_secret: GIT_HUB_TOKEN
+      password:
+        from_secret: GIT_HUB_TOKEN
       dockerfile: build/smpwebsrv/Dockerfile
       tags: latest
     depends_on:
