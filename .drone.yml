@@ -15,4 +15,13 @@ steps:
       - go build
     depends_on:
       - test_simple_web_server
-      
+  - name: docker_simple_web_server
+    image: plugins/docker
+    settings:
+      repo: hsmtkk/jissen_container
+      username: hsmtkk
+      auth:
+        from_secret: GIT_HUB_TOKEN
+      tags: latest
+    depends_on:
+      - test_simple_web_server
