@@ -12,7 +12,6 @@ services:
             - slave01
     slave01:
         container_name: slave01
-        image: jenkins/ssh-agent:latest
+        image: jenkinsci/ssh-slave:latest
         env_file:
             - slave.env
-            
