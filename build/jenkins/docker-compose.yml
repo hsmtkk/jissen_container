@@ -12,7 +12,7 @@ services:
             - slave01
     slave01:
         container_name: slave01
-        image: jenkins/jenkins:lts
-        environment:
-            - JENKINS_SLAVE_SSH_PUBKEY=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDQAzsKUOSDza2mz8vZEHn9JHnzHPftehyDatOYhe6fCeGOGqcpfW1az3U1TtY484gzMbKBfCkwfWWe5qjF6kaJ2Rx4xMVP/J02ng1NWhpKL0EtZIOX4LtzX451Avp4MFoGj4/hOk3cGcWYq3vI+apJAKE2eLoyOIMbIb2R3cBf55L8/9E02ZpafREefPckdU5NjqS55JbfUNG2XvbYBWJOR36rGVFZzLh33gH0QaNqV5Vz9U+bXMslHXBtjx986bf2k0PxgNdknVz28OyRy+0TeJPL4ViKjutDz8LXhejDWQF35EfS4H2Kjz+kccXw6sW5OqKWWoMnK9N3ZaQPDov5 jenkins@d0ce37db70cb
+        image: jenkins/ssh-agent:latest
+        env_file:
+            - slave.env
             
