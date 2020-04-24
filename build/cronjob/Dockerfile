@@ -6,7 +6,8 @@ RUN apt update \
  && rm -rf /var/lib/apt/lists/*
 
 COPY ./build/cronjob/task.sh /usr/local/bin
-COPY ./build/cronjob/cron-example /etc/cron.d
+
+RUN echo "*/1 * * * * root /bin/sh /usr/local/bin/task.sh" > /etc/cron.d/cron-example
 RUN chmod 0644 /etc/cron.d/cron-example
 
 ENTRYPOINT ["cron", "-f"]
