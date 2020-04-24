@@ -5,8 +5,8 @@ RUN apt upddate \
  && apt clean \
  && rm -rf /var/lib/apt/lists/*
 
-COPY ./task.sh /usr/local/bin
-COPY ./cron-example /etc/cron.d
+COPY ./build/cronjob/task.sh /usr/local/bin
+COPY ./build/cronjob/cron-example /etc/cron.d
 RUN chmod 0644 /etc/cron.d/cron-example
 
 ENTRYPOINT ["cron", "-f"]
