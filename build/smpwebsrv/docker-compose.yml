@@ -1,0 +1,8 @@
+version: "3"
+
+services:
+    smpwebsrv:
+        image: docker.pkg.github.com/hsmtkk/jissen_container/smpwebsrv:latest
+        ports:
+            - 8080:8080
+        
