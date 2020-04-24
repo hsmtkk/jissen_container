@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-RUN apt upddate \
+RUN apt update \
  && apt install -y cron \
  && apt clean \
  && rm -rf /var/lib/apt/lists/*
