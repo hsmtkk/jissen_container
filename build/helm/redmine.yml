@@ -1,0 +1,5 @@
+redmineUsername: gihyo
+redminePassword: gihyo
+redmineLanguage: ja
+service.type: LoadBalancer
+service.port: 8000

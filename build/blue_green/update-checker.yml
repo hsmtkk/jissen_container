@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: update-checker
+  labels:
+    app: update-checker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: update-checker
+  template:
+    metadata:
+      labels:
+        app: update-checker
+    spec:
+      containers:
+        - name: update-checker
+          image: gihyodocker/fundamental:0.1.0
+          resources:
+            limits:
+              cpu: 100m
+              memory: 64Mi
+          command:
+            - sh
+            - -c
+            - |
+              while true
+              do
+                APP_VERSION=`curl -s http://echo-version`
+                echo "[`date`] $APP_VERSION"
+                sleep 1
+              done
